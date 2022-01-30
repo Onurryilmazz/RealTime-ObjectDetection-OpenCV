@@ -1,5 +1,3 @@
-from distutils.command.config import config
-from multiprocessing import Condition
 import cv2
 import numpy as np
 
