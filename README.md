@@ -14,4 +14,4 @@ Object detection in real time using OpenCV
     - Os
     
  ## Results
-![Result1](https://github.com/Onurryilmazz/RealTime-ObjectDetection-OpenCV/blob/main/example_result/result%202022-01-30%2020-02-19.mp4)
+![Result](https://github.com/Onurryilmazz/RealTime-ObjectDetection-OpenCV/blob/main/example_result/result_gif.gif)
