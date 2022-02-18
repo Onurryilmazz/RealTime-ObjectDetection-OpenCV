@@ -9,13 +9,14 @@ class Detector:
         self.configPath = configPath
         self.modelPath = modelPath
         self.classesPath = classesPath
-
+        
         self.net = cv2.dnn_DetectionModel(self.modelPath,self.configPath)
         self.net.setInputSize(350,350)
         self.net.setInputScale(1.0/127.5)
         self.net.setInputMean((127.5,127.5,127.5))
         self.net.setInputSwapRB(True)
 
+        
         self.readClasses()
         self.onVideo()
 
@@ -34,13 +35,13 @@ class Detector:
         if(cap.isOpened()==False):
             print("Error")
             return
-        result = cv2.VideoWriter('filename.avi', 
-                         cv2.VideoWriter_fourcc(*'MJPG'),
-                         10, (350,350))
+        
         
         (success,image) = cap.read()
+        
 
         while success:
+            
             classLabelIDs, confidences, bboxs = self.net.detect(image,confThreshold=0.5)
 
             bboxs = list(bboxs)
@@ -65,7 +66,7 @@ class Detector:
                     cv2.putText(image,displayText,(x,y-10),cv2.FONT_HERSHEY_PLAIN,1,classColor,2)
 
             
-            result.write(image)
+            
             cv2.imshow('result',image)
             
 
